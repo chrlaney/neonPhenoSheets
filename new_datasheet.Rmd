@@ -1,0 +1,43 @@
+---
+title: ""
+header-includes:
+   - \usepackage{rotating}
+   - \usepackage[usenames,dvipsnames,svgnames,table]{xcolor}
+   - \usepackage{tgbonum}
+   
+output:
+  pdf_document:
+    latex_engine: xelatex
+sansfont: Arial
+fontsize: 15pt
+geometry: margin=.75in
+
+---
+
+Some text: Build the sheet header here
+
+```{r xtable, results="asis", echo=FALSE}
+library(xtable)
+tab <- mergeTables(getPlantSamplesTable(getPhenoData()), getPhenoObsTable(getPhenoData()))
+names(tab) <- paste0("\\usefont{T1}{phv}{m}{n}{", names(tab), "}")
+tab[,1] <- paste0("\\usefont{T1}{phv}{m}{n}{", tab[,1], "}")
+tab[,2] <- paste0("\\usefont{T1}{phv}{m}{n}{", tab[,2], "}")
+tab[,3] <- paste0("\\usefont{T1}{phv}{m}{n}{", tab[,3], "}")
+tab[,4] <- paste0("\\usefont{T1}{phv}{m}{n}{", tab[,4], "}")
+tab[,5] <- paste0("\\usefont{T1}{phv}{m}{n}{", tab[,5], "}")
+tab[,6] <- paste0("\\usefont{T1}{phv}{m}{n}{", tab[,6], "}")
+tab[,7] <- paste0("\\usefont{T1}{phv}{m}{it}{", tab[,7], "}")
+tab[,8] <- paste0("\\usefont{T1}{phv}{m}{it}{", tab[,8], "}")
+tab[,9] <- rep("",nrow(tab))
+tab[,10] <- paste0("\\usefont{T1}{phv}{m}{it}{", tab[,10], "}")
+#tab[,9] <- paste0("\\textcolor{Gray}{", tab[,9], "}")
+print(xtable(tab, align = "p{0cm}|p{1cm}|p{1cm}|p{.9cm}|p{.8cm}|p{.8cm}|p{3.3cm}|p{1cm}|p{1.5cm}|p{2cm}|p{2cm}|"), 
+      include.rownames=FALSE, 
+      hline.after = c(-1:nrow(tab)), 
+      scalebox=1, 
+      sanitize.text.function = function(x) x)
+#print(xtable(tab, align = "l|l|l|l|l|l|l|l|l|l|l|l|l", display = rep("s",13)), type="html")
+#floating.environment='sidewaystable', 
+```
+
+Some more text: Build the sheet footer here.

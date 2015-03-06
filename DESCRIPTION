@@ -1,0 +1,16 @@
+Package: neonPhenoSheets
+Type: Package
+Title: Transfer data from NEON phenology web UI output to a new spreadsheet
+Version: 1.0
+Date: 2015-03-02
+Author: Christine Laney
+Maintainer: Christine Laney <claney@neoninc.org>
+Description: NEON field operations crew do weekly phenological observations along one 
+    kilometer-long transect at each site. They enter data on paper sheets, type the data 
+    into the NEON phenology web UI, and can then download a .csv file with the information 
+    they entered along with information from lookup tables. The purpose of this application 
+    is to read the .csv file and populate a new data sheet for use in the field during the 
+    next weekly bout.
+License: GPL (>= 2)
+Imports: Rcpp (>= 0.11.4)
+LinkingTo: Rcpp

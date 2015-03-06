@@ -1,0 +1,3 @@
+useDynLib(neonPhenoSheets)
+exportPattern("^[[:alpha:]]+")
+importFrom(Rcpp, evalCpp)
