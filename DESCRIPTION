@@ -12,5 +12,5 @@ Description: NEON field operations crew do weekly phenological observations alon
     is to read the .csv file and populate a new data sheet for use in the field during the 
     next weekly bout.
 License: GPL (>= 2)
-Imports: Rcpp (>= 0.11.4)
+Imports: Rcpp (>= 0.11.4), xtable (>= 1.7-4)
 LinkingTo: Rcpp

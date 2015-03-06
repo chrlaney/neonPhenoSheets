@@ -17,7 +17,6 @@ geometry: margin=.75in
 Some text: Build the sheet header here
 
 ```{r xtable, results="asis", echo=FALSE}
-library(xtable)
 tab <- mergeTables(getPlantSamplesTable(getPhenoData()), getPhenoObsTable(getPhenoData()))
 names(tab) <- paste0("\\usefont{T1}{phv}{m}{n}{", names(tab), "}")
 tab[,1] <- paste0("\\usefont{T1}{phv}{m}{n}{", tab[,1], "}")
