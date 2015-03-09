@@ -9,7 +9,7 @@
 #' 
 mergeTables <- function(plantsamples,phenoobs,anntable){
   df <- merge(plantsamples, phenoobs, by = "Tag ID", all = TRUE)
-  countlevels <- 
+  countlevels <- c("< 3","3-10","11-100","101-1,000","1,001-10,000","> 10,000")
   df$"Tag ID"  <- substr(df$"Tag ID", 19,24)
   df$"From Transect" <- paste0(substr(df$"Direction From Transect", 1, 1), 
                                df$"Ninety Degree Distance")
