@@ -1,10 +1,9 @@
 #mergeTables.R
 
-#' Merge the three dataframes that were retrieved from the csv file.
+#' Merge the two dataframes that were retrieved from the csv file.
 #' 
 #' @param plantsamples The dataframe of plant samples.
 #' @param phenoobs The dataframe of phenology observations.
-#' @param anntable The dataframe of annual observations.
 #' @return A dataframe of merged data from the csv file.
 #' 
 mergeTables <- function(plantsamples,phenoobs,anntable){

@@ -2,7 +2,7 @@
 % Please edit documentation in R/mergeTables.R
 \name{mergeTables}
 \alias{mergeTables}
-\title{Merge the three dataframes that were retrieved from the csv file.}
+\title{Merge the two dataframes that were retrieved from the csv file.}
 \usage{
 mergeTables(plantsamples, phenoobs, anntable)
 }
@@ -10,13 +10,11 @@ mergeTables(plantsamples, phenoobs, anntable)
 \item{plantsamples}{The dataframe of plant samples.}
 
 \item{phenoobs}{The dataframe of phenology observations.}
-
-\item{anntable}{The dataframe of annual observations.}
 }
 \value{
 A dataframe of merged data from the csv file.
 }
 \description{
-Merge the three dataframes that were retrieved from the csv file.
+Merge the two dataframes that were retrieved from the csv file.
 }
 
