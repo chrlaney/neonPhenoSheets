@@ -10,14 +10,14 @@
 mergeTables <- function(plantsamples,phenoobs,anntable){
   df <- merge(plantsamples, phenoobs, by = "Tag ID", all = TRUE)
   df$"Tag ID"  <- substr(df$"Tag ID", 19,24)
-  df$"Direction From Transect" <- substr(df$"Direction From Transect", 1, 1) 
+  df$"From Transect" <- paste0(substr(df$"Direction From Transect", 1, 1), df$"Ninety Degree Distance")
   df$"Phenophase Status" <- substr(df$"Phenophase Status", 1, 1)
   df$"Phenophase Intensity"[(df$"Phenophase Intensity" %in% c("< 3","3-10","11-100","101-1,000","1,001-10,000","> 10,000"))] <- "\\#"
   df$"Phenophase Intensity"[!(df$"Phenophase Intensity" %in% c("< 3","3-10","11-100","101-1,000","1,001-10,000","> 10,000"))] <- "\\%"
   df$"Remarks" <- character(nrow(df))
   rownames(df, do.NULL = TRUE)
-  df <- df[,c(5,1:4,7:9,6,10)]
-  names(df) <- c("Spp. Code","Tag ID","Trans. Meter","Dir. from Trans. (R/L)","90 Deg. Dist. (m)",
-                 "Phenophase Description","Pheno. \nStatus (Y/N)","Pheno. \nIntensity (\\%/\\#)","Drop Plant","Remarks")
+  df <- df[,c(5,1:3,7:9,6,10)]
+  names(df) <- c("Spp. Code","Tag ID","Trans. Meter","Dir. from Trans.",
+                 "Phenophase Desc.","Pheno. Status (y/n/m/?)","Pheno. Intensity","Drop","Remarks")
   return(df)
 }
