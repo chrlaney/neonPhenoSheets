@@ -6,7 +6,7 @@
 #' @param phenoobs The dataframe of phenology observations.
 #' @return A dataframe of merged data from the csv file.
 #' 
-mergeTables <- function(plantsamples,phenoobs,anntable){
+mergeTables <- function(plantsamples,phenoobs){
   df <- merge(plantsamples, phenoobs, by = "Tag ID", all = TRUE)
   countlevels <- c("< 3","3-10","11-100","101-1,000","1,001-10,000","> 10,000")
   df$"Tag ID"  <- substr(df$"Tag ID", 19,24)

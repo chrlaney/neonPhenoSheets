@@ -4,7 +4,7 @@
 \alias{mergeTables}
 \title{Merge the two dataframes that were retrieved from the csv file.}
 \usage{
-mergeTables(plantsamples, phenoobs, anntable)
+mergeTables(plantsamples, phenoobs)
 }
 \arguments{
 \item{plantsamples}{The dataframe of plant samples.}
