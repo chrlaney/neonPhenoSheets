@@ -5,6 +5,7 @@
 #' @param plantsamples The dataframe of plant samples.
 #' @param phenoobs The dataframe of phenology observations.
 #' @return A dataframe of merged data from the csv file.
+#' @export
 #' 
 mergeTables <- function(plantsamples,phenoobs){
   df <- merge(plantsamples, phenoobs, by = "Tag ID", all = TRUE)

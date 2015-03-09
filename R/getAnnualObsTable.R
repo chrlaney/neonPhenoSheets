@@ -4,6 +4,8 @@
 #' 
 #' @param df The imported dataframe.
 #' @return A dataframe of annual observations from the csv file.
+#' @export
+#' 
 getAnnualObsTable <- function(df){
   obsrow <- which(grepl("Annual Observations:", df[,1]))
   startrow <- obsrow + 1

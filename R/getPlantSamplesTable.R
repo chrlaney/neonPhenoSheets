@@ -4,6 +4,7 @@
 #' 
 #' @param df The imported dataframe.
 #' @return A dataframe of plant sample observations from the csv file.
+#' @export 
 getPlantSamplesTable <- function(df){
   obsrow <- which(grepl("Plant Samples:", df[,1]))
   startrow <- obsrow + 1

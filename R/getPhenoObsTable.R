@@ -4,6 +4,7 @@
 #' 
 #' @param df The imported dataframe.
 #' @return A dataframe of phenological observations from the csv file.
+#' @export
 getPhenoObsTable <- function(df){
   obsrow <- which(grepl("Phenophase Observations:", df[,1]))
   startrow <- obsrow + 1
