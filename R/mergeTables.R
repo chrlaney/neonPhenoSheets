@@ -14,13 +14,16 @@ mergeTables <- function(plantsamples,phenoobs){
   df$"From Transect" <- paste0(substr(df$"Direction From Transect", 1, 1), 
                                df$"Ninety Degree Distance")
   df$"Phenophase Status" <- substr(df$"Phenophase Status", 1, 1)
-  df$"Phenophase Intensity"[(df$"Phenophase Intensity" %in% countlevels)] <- "\\#"
-  df$"Phenophase Intensity"[!(df$"Phenophase Intensity" %in% countlevels)] <- "\\%"
+  df$"Prev. Pheno. Intensity" <- character(nrow(df))
+  df$"Prev. Pheno. Intensity"[(df$"Phenophase Intensity" %in% countlevels)] <- 
+    paste("\\#", df$"Phenophase Intensity"[(df$"Phenophase Intensity" %in% countlevels)])
+  df$"Prev. Pheno. Intensity"[!(df$"Phenophase Intensity" %in% countlevels)] <- 
+    paste("\\%", df$"Phenophase Intensity"[!(df$"Phenophase Intensity" %in% countlevels)]) 
   df$"Remarks" <- character(nrow(df))
   rownames(df, do.NULL = TRUE)
-  df <- df[,c(5,1:2,10,7:9,6,11)]
+  df <- df[,c(5,1:2,10,7:8,11,9,6,12)]
   names(df) <- c("Taxon ID","Tag ID", "Trans. Meter","From Trans.",
-                 "Phenophase Desc.","Pheno. Status (y/n/m/?)",
-                 "Pheno. Intensity","Drop","Remarks")
+                 "Phenophase Desc.","Pheno. Status y/n/m/?",
+                 "Past Pheno. Intensity","Pheno. Intensity","Drop","Remarks")
   return(df)
 }
