@@ -17,22 +17,23 @@ mergeTables <- function(plantsamples,phenoobs){
   df$"Phenophase Status" <- substr(df$"Phenophase Status", 1, 1)
   
   countlevels <- c("< 3","3-10","11-100","101-1,000","1,001-10,000","> 10,000")
-  numbers <- df$"Phenophase Intensity"[which(df$"Phenophase Intensity" %in% countlevels)]
-  percents <- df$"Phenophase Intensity"[which(!df$"Phenophase Intensity" %in% countlevels)]               
+  numbers <- which(df$"Phenophase Intensity" %in% countlevels)
+  percents <- which(!df$"Phenophase Intensity" %in% countlevels)              
   
   df$"Prev. Pheno. Status & Intensity" <- character(nrow(df))
   df$"Prev. Pheno. Status & Intensity"[numbers] <- paste(
     df$"Phenophase Status"[numbers], " ", df$"Phenophase Intensity"[numbers], 
-    "\\%", sep = "")
+    "\\#", sep = "")
   df$"Prev. Pheno. Status & Intensity"[percents] <- paste(
     df$"Phenophase Status"[percents], " ", df$"Phenophase Intensity"[percents], 
-    "\\#", sep = "")  
+    "\\%", sep = "")  
   
+  df$"Current Status & Intensity" <- character(nrow(df))
   df$"Remarks" <- character(nrow(df))
   rownames(df, do.NULL = TRUE)
-  df <- df[,c(5,1:2,9,7,10,8,6,11)]
+  df <- df[,c(5,1:2,10,7,11,12,6,13)]
   names(df) <- c("Taxon ID","Tag ID", "Trans. Meter","From Trans.",
-                 "Phenophase Desc.","Pheno. Status y/n/m/?",
-                 "Past Pheno. Status & Intensity","Pheno. Intensity","Drop","Remarks")
+                 "Phenophase Desc.", "Past Status & Intensity",
+                 "Current Status & Intensity","Drop","Remarks")
   return(df)
 }
