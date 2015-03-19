@@ -33,7 +33,7 @@ mergeTables <- function(plantsamples,phenoobs){
   rownames(df, do.NULL = TRUE)
   df <- df[,c(5,1:2,10,7,11,12,6,13)]
   names(df) <- c("Taxon ID","Tag ID", "Trans. Meter","From Trans.",
-                 "Phenophase Desc.", "Past Status & Intensity",
-                 "Current Status & Intensity","Drop","Remarks")
+                 "Phenophase Desc.", "Past Status Intensity",
+                 "Current Status Intensity","Drop","Remarks")
   return(df)
 }
