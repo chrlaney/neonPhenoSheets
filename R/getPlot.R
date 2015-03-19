@@ -8,6 +8,7 @@
 getPlot <- function(file) {
   line <- as.character(file[4,1])
   line <- sub("[[:punct:]]", "", line)
+  line <- sub(".phenology.phe", "", line)
   str <- sub(pattern = "Plot Code: ", replacement = "", x = line)
   return(str)
 }
