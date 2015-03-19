@@ -20,15 +20,15 @@ mergeTables <- function(plantsamples,phenoobs){
   numbers <- which(df$"Phenophase Intensity" %in% countlevels)
   percents <- which(!df$"Phenophase Intensity" %in% countlevels)              
   
-  df$"Prev. Pheno. Status & Intensity" <- character(nrow(df))
-  df$"Prev. Pheno. Status & Intensity"[numbers] <- paste(
+  df$"Prev. Pheno. Status Intensity" <- character(nrow(df))
+  df$"Prev. Pheno. Status Intensity"[numbers] <- paste(
     df$"Phenophase Status"[numbers], " ", df$"Phenophase Intensity"[numbers], 
     "\\#", sep = "")
-  df$"Prev. Pheno. Status & Intensity"[percents] <- paste(
+  df$"Prev. Pheno. Status Intensity"[percents] <- paste(
     df$"Phenophase Status"[percents], " ", df$"Phenophase Intensity"[percents], 
     "\\%", sep = "")  
   
-  df$"Current Status & Intensity" <- character(nrow(df))
+  df$"Current Status Intensity" <- character(nrow(df))
   df$"Remarks" <- character(nrow(df))
   rownames(df, do.NULL = TRUE)
   df <- df[,c(5,1:2,10,7,11,12,6,13)]
