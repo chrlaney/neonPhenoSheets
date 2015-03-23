@@ -15,8 +15,9 @@ mergeTables <- function(plantsamples,phenoobs){
   df$"From Transect" <- paste0(substr(df$"Direction From Transect", 1, 1), 
                                df$"Ninety Degree Distance")
   df$"Phenophase Status" <- substr(df$"Phenophase Status", 1, 1)
+  df$"Phenophase Intensity" <- sub(df$"Phenophase Intensity", pattern = "%", replacement = "")
   
-  countlevels <- c("< 3","3-10","11-100","101-1,000","1,001-10,000","> 10,000")
+  countlevels <- c("< 3","3 to 10","11 to 100","101 to 1000","1001 to 10,000","> 10000")
   numbers <- which(df$"Phenophase Intensity" %in% countlevels)
   percents <- which(!df$"Phenophase Intensity" %in% countlevels)              
   
