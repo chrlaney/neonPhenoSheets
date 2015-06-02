@@ -29,12 +29,13 @@ mergeTables <- function(plantsamples,phenoobs){
     df$"Phenophase Status"[percents], " ", df$"Phenophase Intensity"[percents], 
     "\\%", sep = "")  
   
-  df$"Current Status Intensity" <- character(nrow(df))
+  df$"Status" <- character(nrow(df))
+  df$"Intensity" <- character(nrow(df))
   df$"Remarks" <- character(nrow(df))
   rownames(df, do.NULL = TRUE)
   df <- df[,c(5,1:2,10,7,11,12,6,13)]
   names(df) <- c("Taxon ID","Tag ID", "Trans. Meter","From Trans.",
                  "Phenophase Desc.", "Past Status Intensity",
-                 "Current Status Intensity","Drop","Remarks")
+                 "Status", "Intensity","Drop","Remarks")
   return(df)
 }
